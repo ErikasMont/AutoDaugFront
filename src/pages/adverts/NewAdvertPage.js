@@ -3,9 +3,10 @@ import {Link, useNavigate } from "react-router-dom";
 import Header from '../../components/admin.header';
 import advertTypesServices from "../../services/advertTypes.services";
 
-const NewAdvertTypePage = () => {
+const NewAdvertPage = () => {
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
+    const [price, setPrice] = useState()
     const [response, setResponse] = useState({type:0, message:""})
 
     const navigate = useNavigate();   

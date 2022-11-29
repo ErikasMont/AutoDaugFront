@@ -1,39 +1,39 @@
 import React, {useEffect, useState, useRef} from "react";
 import {Link, useNavigate } from "react-router-dom";
-import Header from '../../components/admin.header';
+import Header from '../../components/client.header';
 import { Table, Column, HeaderCell, Cell } from 'rsuite-table';
-import advertTypesServices from "../../services/advertTypes.services";
+import advertsServices from "../../services/advert.services";
 import "rsuite-table/dist/css/rsuite-table.css";
 
-const AdvertTypesPage = () => {
-    const [advertTypes, setAdvertTypes] = useState([])
+const AdvertsPage = () => {
+    const [adverts, setAdverts] = useState([])
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        getAdvertTypes()
+        getAdverts()
       }, []);
     
-    async function getAdvertTypes()
+    async function getAdverts()
     {
-        const types = await advertTypesServices.getAdvertTypes()
-        setAdvertTypes(types)
+        const ads = await advertsServices.getAdverts()
+        setAdverts(ads)
     }
 
     const handleNew = (event) => {
         event.preventDefault()
-        navigate("/advertTypes/new")
+        navigate("/adverts/new")
     }
 
     const handleEdit = async (event) => {
         event.preventDefault()
-        navigate("/advertTypes/edit", {state:{advertTypeId:event.target.edit.value}})
+        navigate("/adverts/edit", {state:{advertId:event.target.edit.value}})
       }
 
     const handleDelete = async (event) => {
         event.preventDefault()
-        await advertTypesServices.deleteAdvertType(event.target.type.value)
-        await getAdvertTypes()
+        await advertsServices.deleteAdvert(event.target.type.value)
+        await getAdverts()
     }
 
     return(
@@ -42,7 +42,7 @@ const AdvertTypesPage = () => {
                 <Header/>
             </div>
             <div className="mainBody">
-            <Table autoHeight data={advertTypes} bordered>
+            <Table autoHeight data={adverts} bordered>
                 <Column width={150}>
                     <HeaderCell>Name</HeaderCell>
                     <Cell dataKey="name"/>
@@ -50,6 +50,10 @@ const AdvertTypesPage = () => {
                 <Column width={150}>                    
                     <HeaderCell>Description</HeaderCell>
                     <Cell dataKey="description"/>
+                </Column>
+                <Column width={70}>                    
+                    <HeaderCell>Price</HeaderCell>
+                    <Cell dataKey="price"/>
                 </Column>
                 <Column width={70}>                    
                     <HeaderCell></HeaderCell>
@@ -72,10 +76,10 @@ const AdvertTypesPage = () => {
                     </Cell>
                 </Column>
             </Table>
-            <button onClick={handleNew}>Add advert type</button>
+            <button onClick={handleNew}>Add advert</button>
             </div>
         </div>
       )
 }
 
-export default AdvertTypesPage
+export default AdvertsPage
