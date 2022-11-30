@@ -13,6 +13,10 @@ import EditAdvertTypePage from './pages/advertTypes/EditAdvertTypePage';
 import NewAdvertTypePage from './pages/advertTypes/NewAdvertTypePage';
 import AdvertsPage from './pages/adverts/AdvertsPage';
 import EditAdvertPage from './pages/adverts/EditAdvertPage';
+import NewAdvertPage from './pages/adverts/NewAdvertPage';
+import CarsPage from './pages/car/CarsPage';
+import NewCarPage from './pages/car/NewCarPage';
+import EditCarPage from './pages/car/EditCarPage';
 
 function App() {
   return (
@@ -34,6 +38,10 @@ function App() {
             <Route path="/profile" element={<ProfilePage/>}/>
             <Route path="/adverts" element={<AdvertsPage/>}/>
             <Route path="/adverts/edit" element={<EditAdvertPage/>}/>
+            <Route path="/adverts/new" element={<NewAdvertPage/>}/>
+            <Route path="/cars" element={<CarsPage/>}/>
+            <Route path="/cars/new" element={<NewCarPage/>}/>
+            <Route path="/cars/edit" element={<EditCarPage/>}/>
           </Route>
 
           <Route path="/" element={<Outlet/>}>

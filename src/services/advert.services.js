@@ -20,7 +20,7 @@ class AdvertsService {
     }
     addAdvert(name, description, price, advertTypeId){
         return axios
-        .post(API_URL + "/adverts", {name:name, description:description, price:price, advertTypeId:advertTypeId, user:user.id}, 
+        .post(API_URL + "/adverts", {name:name, description:description, price:price, advertType_Id:advertTypeId, user_Id:user.id}, 
         { headers: { 'Authorization': user.token }})
         .then(response => {
             return response.data;

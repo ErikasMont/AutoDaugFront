@@ -98,7 +98,7 @@ const EditAdvertPage = () => {
                         </center>
                     </div>
                 </form>
-                <button onClick={handleBack}>Back to advert types</button>
+                <button onClick={handleBack}>Back to adverts</button>
                 </div>
             </div>
         )
