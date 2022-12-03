@@ -17,10 +17,10 @@ const AdminHeader = () =>{
                     <h2 className='title' onClick={() =>{navigate('/dashboard')}}>AutoDaug</h2>
                 </div>
                 <div className='menu-item'>
-                    <button onClick={()=>{ navigate('/cars')}} className='header-btn'>All cars</button>
+                    <button onClick={()=>{ navigate('/allCars')}} className='header-btn'>All cars</button>
                 </div>
                 <div className='menu-item'>
-                    <button onClick={()=>{ navigate('/adverts')}} className='header-btn'>All adverts</button>
+                    <button onClick={()=>{ navigate('/allAdverts')}} className='header-btn'>All adverts</button>
                 </div>
                 <div className='menu-item'>
                     <button onClick={()=>{ navigate('/users')}} className='header-btn'>All users</button>

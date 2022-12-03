@@ -1,12 +1,12 @@
 import React, {useEffect, useState, useRef} from "react";
 import {Link, useNavigate } from "react-router-dom";
-import Header from '../../components/client.header';
+import Header from '../../components/admin.header';
 import { Table, Column, HeaderCell, Cell } from 'rsuite-table';
 import advertsServices from "../../services/advert.services";
 import carsServices from "../../services/car.services";
 import "rsuite-table/dist/css/rsuite-table.css";
 
-const AdvertsPage = () => {
+const AllAdvertsPage = () => {
     const [adverts, setAdverts] = useState([])
     const [cars, setCars] = useState([])
 
@@ -24,14 +24,9 @@ const AdvertsPage = () => {
         setAdverts(ads)
     }
 
-    const handleNew = (event) => {
-        event.preventDefault()
-        navigate("/adverts/new")
-    }
-
     const handleEdit = async (event) => {
         event.preventDefault()
-        navigate("/adverts/edit", {state:{advertId:event.target.edit.value}})
+        navigate("/allAdverts/edit", {state:{advertId:event.target.edit.value}})
       }
 
     const handleDelete = async (event) => {
@@ -69,7 +64,7 @@ const AdvertsPage = () => {
                     }}
                     </Cell>
                 </Column>
-                <Column width={350} verticalAlign="top">                    
+                <Column width={350}>                    
                     <HeaderCell></HeaderCell>
                     <Cell>{(rowData, rowIndex) => {
                         const temp = cars.map((car) => car.advert_Id === rowData.id)
@@ -86,10 +81,9 @@ const AdvertsPage = () => {
                     </Cell>
                 </Column>
             </Table>
-            <button onClick={handleNew}>Add advert</button>
             </div>
         </div>
       )
 }
 
-export default AdvertsPage
+export default AllAdvertsPage

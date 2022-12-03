@@ -1,10 +1,11 @@
+import { getMouseEventOptions } from "@testing-library/user-event/dist/utils";
 import React, {useEffect, useState, useRef} from "react";
 import {Link, useLocation, useNavigate } from "react-router-dom";
-import Header from '../../components/client.header';
+import Header from '../../components/admin.header';
 import advertsServices from "../../services/advert.services";
 import advertTypesServices from "../../services/advertTypes.services";
 
-const EditAdvertPage = () => {
+const AdminEditAdvertPage = () => {
     const [advertId, setAdvertId] = useState()
     const [advertTypes, setAdvertTypes] = useState([])
     const [advertType, setAdvertType] = useState()
@@ -60,7 +61,7 @@ const EditAdvertPage = () => {
       }
       const handleBack = (event) => {
         event.preventDefault()
-        navigate("/adverts")
+        navigate("/allAdverts")
       }
 
     
@@ -116,4 +117,4 @@ const EditAdvertPage = () => {
     
 }
 
-export default EditAdvertPage
+export default AdminEditAdvertPage

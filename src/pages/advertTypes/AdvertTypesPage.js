@@ -3,10 +3,12 @@ import {Link, useNavigate } from "react-router-dom";
 import Header from '../../components/admin.header';
 import { Table, Column, HeaderCell, Cell } from 'rsuite-table';
 import advertTypesServices from "../../services/advertTypes.services";
+import advertsServices from "../../services/advert.services";
 import "rsuite-table/dist/css/rsuite-table.css";
 
 const AdvertTypesPage = () => {
     const [advertTypes, setAdvertTypes] = useState([])
+    const [adverts, setAdverts] = useState([])
 
     const navigate = useNavigate();
 
@@ -17,6 +19,8 @@ const AdvertTypesPage = () => {
     async function getAdvertTypes()
     {
         const types = await advertTypesServices.getAdvertTypes()
+        const ads = await advertsServices.getAdverts()
+        setAdverts(ads)
         setAdvertTypes(types)
     }
 
@@ -61,13 +65,19 @@ const AdvertTypesPage = () => {
                     }}
                     </Cell>
                 </Column>
-                <Column width={150}>                    
+                <Column width={430}>                    
                     <HeaderCell></HeaderCell>
                     <Cell>{(rowData, rowIndex) => {
-                        return <form onSubmit={handleDelete}>
-                        <input type="hidden" name="type" value={rowData.id}/>
-                        <button className="tableButton">Delete</button>
-                        </form>
+                        const temp = adverts.map((ad) => ad.advertType_Id === rowData.id)
+                        if(temp[0] === false){
+                            return <form onSubmit={handleDelete}>
+                            <input type="hidden" name="type" value={rowData.id}/>
+                            <button className="tableButton">Delete</button>
+                            </form>
+                        }
+                        else{
+                            return <p className='error-message'>Can't delete. Advert type has adverts, delete the adverts first</p>
+                        }
                     }}
                     </Cell>
                 </Column>

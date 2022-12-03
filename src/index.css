@@ -12,10 +12,15 @@ code {
     monospace;
 }
 
+.search-row {
+  height: 300;
+}
+
 .error-message
 {
   text-align: center;
   color: red;
+  margin: 0;
 }
 .success-message
 {

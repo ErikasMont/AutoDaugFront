@@ -43,6 +43,9 @@ export default function LoginPage() {
                 </center>
             </div>
             </form>
+        <div className='link-container'> 
+            <Link className='login-link' to="/register">Not a user? Register here</Link>
+        </div>
         </div>
       )
 }

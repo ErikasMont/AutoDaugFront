@@ -17,6 +17,12 @@ import NewAdvertPage from './pages/adverts/NewAdvertPage';
 import CarsPage from './pages/car/CarsPage';
 import NewCarPage from './pages/car/NewCarPage';
 import EditCarPage from './pages/car/EditCarPage';
+import AllAdvertsPage from './pages/admin/AllAdvertsPage';
+import AllCarsPage from './pages/admin/AllCarsPage';
+import AdminEditAdvertPage from './pages/admin/EditAdvertPage';
+import AdminEditCarPage from './pages/admin/EditCarPage';
+import SearchPage from './pages/user/SearchPage';
+import AdvertPage from './pages/adverts/AdvertPage';
 
 function App() {
   return (
@@ -30,6 +36,10 @@ function App() {
             <Route path="/advertTypes" element={<AdvertTypesPage/>}/>
             <Route path="/advertTypes/edit" element={<EditAdvertTypePage/>}/>
             <Route path="/advertTypes/new" element={<NewAdvertTypePage/>}/>
+            <Route path="/allAdverts" element={<AllAdvertsPage/>}/>
+            <Route path="/allAdverts/edit" element={<AdminEditAdvertPage/>}/>
+            <Route path="/allCars" element={<AllCarsPage/>}/>
+            <Route path="/allCars/edit" element={<AdminEditCarPage/>}/>
           </Route>
 
           <Route path="/" element={<ProtectedRoutes requireAdmin={false}/>}>
@@ -42,6 +52,8 @@ function App() {
             <Route path="/cars" element={<CarsPage/>}/>
             <Route path="/cars/new" element={<NewCarPage/>}/>
             <Route path="/cars/edit" element={<EditCarPage/>}/>
+            <Route path="/search" element={<SearchPage/>}/>
+            <Route path="/advert" element={<AdvertPage/>}/>
           </Route>
 
           <Route path="/" element={<Outlet/>}>

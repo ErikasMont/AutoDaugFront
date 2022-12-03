@@ -1,15 +1,14 @@
 import React, {useEffect, useState, useRef} from "react";
 import {Link, useNavigate } from "react-router-dom";
-import Header from '../../components/client.header';
+import Header from '../../components/admin.header';
 import { Table, Column, HeaderCell, Cell } from 'rsuite-table';
 import carsServices from "../../services/car.services";
 import "rsuite-table/dist/css/rsuite-table.css";
 
-const CarsPage = () => {
+const AllCarsPage = () => {
     const [cars, setCars] = useState([])
 
     const navigate = useNavigate();
-    const user = JSON.parse(localStorage.getItem('user'));
 
     useEffect(() => {
         getCars()
@@ -18,20 +17,13 @@ const CarsPage = () => {
     async function getCars()
     {
         const c = await carsServices.getCars()
-        const uc = c.filter(car => {
-            return car.user_Id === user.id
-        })
-        setCars(uc)
+        setCars(c)
     }
 
-    const handleNew = (event) => {
-        event.preventDefault()
-        navigate("/cars/new")
-    }
 
     const handleEdit = async (event) => {
         event.preventDefault()
-        navigate("/cars/edit", {state:{carId:event.target.edit.value}})
+        navigate("/allCars/edit", {state:{carId:event.target.edit.value}})
       }
 
     const handleDelete = async (event) => {
@@ -100,10 +92,9 @@ const CarsPage = () => {
                     </Cell>
                 </Column>
             </Table>
-            <button onClick={handleNew}>Add car</button>
             </div>
         </div>
       )
 }
 
-export default CarsPage
+export default AllCarsPage

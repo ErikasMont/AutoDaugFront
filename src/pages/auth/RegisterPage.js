@@ -8,7 +8,7 @@ export default function LoginPage() {
     const [username,setUsername] = useState("");
     const [password,setPassword] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
-    const [error,setError] = useState("");
+    const [response, setResponse] = useState({type:0, message:""})
 
     
     const handleSubmit = (event) => 
@@ -17,11 +17,10 @@ export default function LoginPage() {
 
       authServices.register(username,password,phoneNumber).then(
       userData => {
-        setError(setError(""));
-        navigate("/login")
+        setResponse({type:0, message:"You have registered successfully! Now wait until the administrator confirms your account"})
       },
       error => {
-          setError(error.response.data)
+        setResponse({type:1, message:error.response.data})
       }
     )};
 
@@ -41,11 +40,14 @@ export default function LoginPage() {
                 <p>Phone number</p>
                 <input type="tel" pattern="^\+?[1-9][0-9]{10,10}$" onChange={e => setPhoneNumber(e.target.value)} required={true}></input>
             </label>
-            <p className='error-message'>{error}</p>
+            {response.type===1 ?  <p className='error-message'>{response.message}</p> : <p className='success-message'>{response.message}</p>}
             <div>
                 <center>
                     <button type="submit">Register</button>
                 </center>
+            </div>
+            <div className='link-container'> 
+                <Link className='login-link' to="/login">Already a user? Login here</Link>
             </div>
             </form>
         </div>

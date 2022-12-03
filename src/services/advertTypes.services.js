@@ -18,6 +18,13 @@ class AdvertTypesService {
             return response.data
         })
     }
+    getAdvertsByType(advertTypeId){
+        return axios
+        .get(API_URL + "/advertTypes/" + advertTypeId + "/adverts", { headers: { 'Authorization': user.token }})
+        .then(response => {
+            return response.data
+        })
+    }
     addAdvertType(name, description){
         return axios
         .post(API_URL + "/advertTypes", {name:name, description:description}, { headers: { 'Authorization': user.token }})
