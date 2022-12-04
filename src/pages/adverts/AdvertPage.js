@@ -5,6 +5,7 @@ import { Table, Column, HeaderCell, Cell } from 'rsuite-table';
 import advertsServices from "../../services/advert.services";
 import carsServices from "../../services/car.services";
 import usersServices from "../../services/user.services";
+import moment from 'moment';
 import "rsuite-table/dist/css/rsuite-table.css";
 
 const AdvertPage = () => {
@@ -37,12 +38,19 @@ const AdvertPage = () => {
                 <div className="markerContainer">
                     <Header/>
                 </div>
-                <div className="mainBody">
+                <div className="main-body">
                     <h1>{advert.name}</h1>
+                    <p>Make: {car.make}</p>
+                    <p>Model: {car.model}</p>
+                    <p>Year of manufacture: {moment(car.manufactureDate).format("YYYY-MM-DD")}</p>
+                    <p>Milage: {car.milage} km</p>
+                    <p>Gas type: {car.gasType}</p>
+                    <p>Engine: {car.engine} l</p>
+                    <p>Color: {car.color}</p>
+                    <p>Gearbox: {car.gearbox}</p>
                     <p>{advert.description}</p>
-                    <p>{advert.price}</p>
-                    <p>{car.make} {car.model}</p>
-                    <p>{user.phoneNumber}</p>
+                    <p>Price: {advert.price}</p>
+                    <p>Seller contact info: {user.phoneNumber}</p>
                 </div>
             </div>
           )
@@ -53,7 +61,7 @@ const AdvertPage = () => {
                 <div className="markerContainer">
                     <Header/>
                 </div>
-                <div className="mainBody">
+                <div className="main-body">
                 </div>
             </div>
           )
@@ -64,11 +72,11 @@ const AdvertPage = () => {
                 <div className="markerContainer">
                     <Header/>
                 </div>
-                <div className="mainBody">
+                <div className="main-body">
                     <h1>{advert.name}</h1>
                     <p>{advert.description}</p>
-                    <p>{advert.price}</p>
-                    <p>{user.phoneNumber}</p>
+                    <p>Price: {advert.price}</p>
+                    <p>Seller contact info: {user.phoneNumber}</p>
                 </div>
             </div>
           )
