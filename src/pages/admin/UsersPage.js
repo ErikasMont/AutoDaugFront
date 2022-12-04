@@ -37,7 +37,7 @@ const UsersPage = () => {
             <div className="markerContainer">
                 <Header/>
             </div>
-            <div className="mainBody">
+            <div className="main-body">
             <Table autoHeight data={users} bordered>
                 <Column width={150}>
                     <HeaderCell>Username</HeaderCell>

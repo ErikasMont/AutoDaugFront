@@ -45,7 +45,7 @@ const CarsPage = () => {
             <div className="markerContainer">
                 <Header/>
             </div>
-            <div className="mainBody">
+            <div className="main-body">
             <Table autoHeight data={cars} bordered>
                 <Column width={90}>
                     <HeaderCell>Make</HeaderCell>

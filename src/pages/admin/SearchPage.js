@@ -1,11 +1,11 @@
 import React, {useEffect, useState, useRef} from "react";
 import {Link, useNavigate, useLocation } from "react-router-dom";
-import Header from '../../components/client.header';
+import Header from '../../components/admin.header';
 import { Table, Column, HeaderCell, Cell } from 'rsuite-table';
 import advertTypesServices from "../../services/advertTypes.services";
 import "rsuite-table/dist/css/rsuite-table.css";
 
-const SearchPage = () => {
+const AdminSearchPage = () => {
     const [adverts, setAdverts] = useState([])
 
     const navigate = useNavigate();
@@ -22,7 +22,7 @@ const SearchPage = () => {
     }
 
     const handleDetails = (advertId) => {
-        navigate("/advert", {state:{advertId:advertId}})
+        navigate("/adminAdvert", {state:{advertId:advertId}})
     }
 
     return(
@@ -40,7 +40,7 @@ const SearchPage = () => {
                             <h3>{rowData.name}</h3>
                             <p>{rowData.description}</p>
                             <br/>
-                            <p>{rowData.price} €</p>   
+                            <p>{rowData.price}</p>   
                         </div>
                     }}
                     </Cell>
@@ -51,4 +51,4 @@ const SearchPage = () => {
       )
 }
 
-export default SearchPage
+export default AdminSearchPage

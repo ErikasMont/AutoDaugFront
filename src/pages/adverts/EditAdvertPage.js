@@ -70,7 +70,7 @@ const EditAdvertPage = () => {
                 <div className="markerContainer">
                     <Header/>
                 </div>
-                <div className="mainBody">
+                <div className="main-body">
                 <form onSubmit={handleEdit}>
                     <label>
                         <p>Name</p>
@@ -108,7 +108,7 @@ const EditAdvertPage = () => {
                 <div className="markerContainer">
                     <Header/>
                 </div>
-                <div className="mainBody">
+                <div className="main-body">
                 </div>
             </div>
         )

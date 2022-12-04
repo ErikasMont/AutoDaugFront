@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Link, useNavigate } from "react-router-dom";
 import authServices from '../../services/auth.services';
+import Logo from '../../components/Logo';
 
 export default function LoginPage() {
 
@@ -25,8 +26,15 @@ export default function LoginPage() {
     )};
 
     return(
-        <div>
-            <h1>AutoDaug</h1>
+        <div className='login-container'>
+            <div className='path'>
+                <center>
+                    <Logo/>
+                </center>
+            </div>
+            <center>
+                <h1>AutoDaug</h1>
+            </center>
             <form onSubmit={handleSubmit}>
             <label>
                 <p>Username</p>

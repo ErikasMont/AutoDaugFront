@@ -45,7 +45,7 @@ const ProfilePage = () => {
                 <div className="markerContainer">
                     <Header/>
                 </div>
-                <div className="mainBody">
+                <div className="login-container">
                 <form onSubmit={handleEdit}>
                     <label>
                         <p>Username</p>

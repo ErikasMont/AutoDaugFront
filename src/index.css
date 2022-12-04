@@ -90,6 +90,16 @@ code {
   border-style: solid;
 }
 
+.main-body{
+  padding: 20px;
+  margin: auto;
+  height: auto;
+  width: 1200px;
+  border-width: 1px;
+  border-color: rgba(128, 128, 128, 0.315);
+  border-style: solid;
+}
+
 
 button{
   margin-top: 5px;
@@ -200,8 +210,4 @@ input, select {
 
 .inactive-btn:hover{
   background-color:#70727500;
-}
-
-.mainBody{
-  padding-top: 50px;
 }

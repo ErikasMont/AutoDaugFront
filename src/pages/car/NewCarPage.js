@@ -89,7 +89,7 @@ const NewCarPage = () => {
                 <div className="markerContainer">
                     <Header/>
                 </div>
-                <div className="mainBody">
+                <div className="main-body">
                 <form onSubmit={handleSubmit}>
                     <label>
                         <p>Make</p>
@@ -111,10 +111,10 @@ const NewCarPage = () => {
                         <p>GasType</p>
                         <select name="gasType" onChange={e => setGasType(e.target.value)}>
                             <option key="select" value="select">Select gas type</option>
-                            <option key="petrol" value="petrol">Petrol</option>
-                            <option key="diesel" value="diesel">Diesel</option>
-                            <option key="electric" value="electric">Electric</option>
-                            <option key="hybrid" value="hybrid">Hybrid</option>
+                            <option key="petrol" value="Petrol">Petrol</option>
+                            <option key="diesel" value="Diesel">Diesel</option>
+                            <option key="electric" value="Electric">Electric</option>
+                            <option key="hybrid" value="Hybrid">Hybrid</option>
                         </select>
                     </label>
                     <label>
@@ -129,8 +129,8 @@ const NewCarPage = () => {
                         <p>Gearbox</p>
                         <select name="gearbox" onChange={e => setGearbox(e.target.value)}>
                             <option key="select" value="select">Select gas type</option>
-                            <option key="manual" value="manual">Manual</option>
-                            <option key="automatic" value="automatic">Automatic</option>
+                            <option key="manual" value="Manual">Manual</option>
+                            <option key="automatic" value="Automatic">Automatic</option>
                         </select>
                     </label>
                     <label>
@@ -158,7 +158,7 @@ const NewCarPage = () => {
                 <div className="markerContainer">
                     <Header/>
                 </div>
-                <div className="mainBody">
+                <div className="main-body">
                 </div>
             </div>
         )

@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import {Link, useNavigate } from "react-router-dom";
 import authServices from '../../services/auth.services';
+import Logo from '../../components/Logo';
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
 
 export default function LoginPage() {
 
@@ -24,9 +28,32 @@ export default function LoginPage() {
       }
     )};
 
+    let subtitle;
+    const [modalIsOpen, setIsOpen] = useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        subtitle.style.color = '#f00';
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
     return(
-        <div>
-            <h1>AutoDaug</h1>
+        <div className='login-container'>
+            <div className='path'>
+                <center>
+                    <Logo/>
+                </center>
+            </div>
+            <center>
+                <h1>AutoDaug</h1>
+            </center>
             <form onSubmit={handleSubmit}>
             <label>
                 <p>Username</p>
@@ -46,10 +73,27 @@ export default function LoginPage() {
                     <button type="submit">Register</button>
                 </center>
             </div>
+            </form>
             <div className='link-container'> 
                 <Link className='login-link' to="/login">Already a user? Login here</Link>
+                <center>
+                    <button onClick={openModal}>Useful info</button>
+                </center>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onAfterOpen={afterOpenModal}
+                    onRequestClose={closeModal}
+                    contentLabel="Useful info modal"
+                >
+                    <h2>Useful info</h2>
+                    <p>Pick a unique username for your login, but you can update it whenever you want. It should 
+                        not be shorter than 6 characters long!
+                    </p>
+                    <p>Pick a strong password, it has to be at least 6 characters long!</p>
+                    <p>To type in the correct phone number follow the Lithuanian format e.g: +37061234567</p>
+                    <button onClick={closeModal}>Close</button>
+                </Modal>
             </div>
-            </form>
         </div>
       )
 }

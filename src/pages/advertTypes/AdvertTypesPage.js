@@ -45,7 +45,7 @@ const AdvertTypesPage = () => {
             <div className="markerContainer">
                 <Header/>
             </div>
-            <div className="mainBody">
+            <div className="main-body">
             <Table autoHeight data={advertTypes} bordered>
                 <Column width={150}>
                     <HeaderCell>Name</HeaderCell>

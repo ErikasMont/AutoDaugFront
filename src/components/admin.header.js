@@ -1,41 +1,44 @@
 import React from 'react';
+import styled from 'styled-components';
+import Burger from './AdminBurger';
 import './header.css';
-import {useNavigate } from "react-router-dom";
-import authServices from '../services/auth.services';
+import {Link, useNavigate } from "react-router-dom";
 
-const AdminHeader = () =>{
+const Nav = styled.nav`
+  background-color: rgb(70, 67, 67);
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+  .logo {
+    padding: 15px 0;
+  }
+  .title{
+    padding: 0;
+    padding-top: 5px;
+    margin: 0px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: white;
+  }
+  .headerTitle{
+    width: 140px;
+    height: 50px;
+    background-color: rgb(70, 67, 67);
+  }
+`
 
-    const navigate = useNavigate();
-    const handleClick = ()=>{
-       authServices.logout()
-       navigate('/login')
-    }
-    return(
-        <div className='div-header'>
-            <div className='div-svg'>
-                <div className='headerTitle'>
-                    <h2 className='title' onClick={() =>{navigate('/dashboard')}}>AutoDaug</h2>
-                </div>
-                <div className='menu-item'>
-                    <button onClick={()=>{ navigate('/allCars')}} className='header-btn'>All cars</button>
-                </div>
-                <div className='menu-item'>
-                    <button onClick={()=>{ navigate('/allAdverts')}} className='header-btn'>All adverts</button>
-                </div>
-                <div className='menu-item'>
-                    <button onClick={()=>{ navigate('/users')}} className='header-btn'>All users</button>
-                </div>
-                <div className='menu-item'>
-                    <button onClick={()=>{ navigate('/advertTypes')}} className='header-btn'>Advert types</button>
-                </div>
-            </div>
-            <div className='div-svg'>
-                <div className='menu-item'>
-                    <button onClick={handleClick} className='header-btn'>Logout</button>
-                </div>
-            </div>
+const Navbar = () => {
+    const navigate = useNavigate()
+    return (
+        <Nav>
+        <div className="headerTitle">
+            <h2 className='title' onClick={() =>{navigate('/dashboard')}}>AutoDaug</h2>
         </div>
+        <Burger />
+        </Nav>
     )
 }
 
-export default AdminHeader;
+export default Navbar

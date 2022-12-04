@@ -23,6 +23,8 @@ import AdminEditAdvertPage from './pages/admin/EditAdvertPage';
 import AdminEditCarPage from './pages/admin/EditCarPage';
 import SearchPage from './pages/user/SearchPage';
 import AdvertPage from './pages/adverts/AdvertPage';
+import AdminSearchPage from './pages/admin/SearchPage';
+import AdminAdvertPage from './pages/admin/AdvertPage';
 
 function App() {
   return (
@@ -40,6 +42,8 @@ function App() {
             <Route path="/allAdverts/edit" element={<AdminEditAdvertPage/>}/>
             <Route path="/allCars" element={<AllCarsPage/>}/>
             <Route path="/allCars/edit" element={<AdminEditCarPage/>}/>
+            <Route path="/adminSearch" element={<AdminSearchPage/>}/>
+            <Route path="/adminAdvert" element={<AdminAdvertPage/>}/>
           </Route>
 
           <Route path="/" element={<ProtectedRoutes requireAdmin={false}/>}>

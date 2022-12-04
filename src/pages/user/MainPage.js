@@ -34,7 +34,7 @@ const ClientMainPage = () => {
     return(
         <div>
             <Header/>
-            <div className='mainBody'>
+            <div className='login-container'>
                 <center>
                     <p>Welcome {user.username}!</p>
                 </center>
